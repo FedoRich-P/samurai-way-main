@@ -1,20 +1,32 @@
 import React from 'react';
 import './App.css';
 import styled from "styled-components";
-import {Header} from "./header/Header";
-import {Aside} from "./aside/Aside";
-import {Main} from "./main/Main";
+import {Header} from "./layout/header/Header";
+import {Aside} from "./layout/aside/Aside";
+import {Main} from "./layout/main/Main";
 import {Container} from "./components/Container";
+import {Dialogs} from "./layout/Dialogs/Dialogs";
+import {MainContainer} from "./components/MainContainer";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 function App() {
     return (
-        <Container>
-            <ProjectWrapper>
-                <Header/>
-                <Aside/>
-                <Main/>
-            </ProjectWrapper>
-        </Container>
+        <BrowserRouter>
+            <Container>
+                <ProjectWrapper>
+                    <Header/>
+                    <Aside/>
+                    <MainContainer>
+
+                        <Routes>
+                            <Route path="/profile" element={<Main/>}/>
+                            <Route path="/dialogs" element={<Dialogs/>}/>
+                        </Routes>
+
+                    </MainContainer>
+                </ProjectWrapper>
+            </Container>
+        </BrowserRouter>
     );
 }
 
@@ -28,3 +40,6 @@ const ProjectWrapper = styled.div`
     gap: 15px;
 `
 export default App;
+
+{/*<Main/>*/}
+{/*<Dialogs/>*/}
