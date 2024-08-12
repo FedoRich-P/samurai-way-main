@@ -3,11 +3,13 @@ import './App.css';
 import styled from "styled-components";
 import {Header} from "./layout/header/Header";
 import {Aside} from "./layout/aside/Aside";
-import {Main} from "./layout/main/Main";
 import {Container} from "./components/Container";
 import {Dialogs} from "./layout/Dialogs/Dialogs";
 import {MainContainer} from "./components/MainContainer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Music} from "./layout/music/Music";
+import {News} from "./layout/news/News";
+import {Profile} from "./layout/profile/Profile";
 
 function App() {
     return (
@@ -19,8 +21,10 @@ function App() {
                     <MainContainer>
 
                         <Routes>
-                            <Route path="/profile" element={<Main/>}/>
-                            <Route path="/dialogs" element={<Dialogs/>}/>
+                            <Route path="/profile" element={<Profile/>}/>
+                            <Route path="/dialogs/*" element={<Dialogs/>}/>
+                            <Route path="/news" element={<News/>}/>
+                            <Route path="/music" element={<Music/>}/>
                         </Routes>
 
                     </MainContainer>

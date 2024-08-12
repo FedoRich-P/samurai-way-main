@@ -31,6 +31,6 @@ const StyledAside = styled.aside`
     }
 `
 
-export const S = {
+export const s = {
     StyledAside
 }

@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
 const PostsWrapper = styled.article`
+    width: 100%;
     padding: 20px;
-    max-width: 500px;
+    //max-width: 500px;
+    
+    ul {
+        max-width: 750px;
+        margin: 0 auto;
+    }
 `
 
 const MainForm = styled.form`
     margin-bottom: 25px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -27,7 +34,7 @@ const FormButton = styled.button`
     text-transform: uppercase;
 `
 
-export const S = {
+export const s = {
     PostsWrapper,
     MainForm,
     FormButton,

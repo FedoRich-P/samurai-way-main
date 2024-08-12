@@ -37,7 +37,7 @@ const Button = styled.button`
     font-weight: 700;
 `
 
-export const S = {
+export const s = {
     Item,
     Descr,
     ImageWrapper,
