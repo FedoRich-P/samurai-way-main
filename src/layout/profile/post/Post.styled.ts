@@ -27,7 +27,9 @@ const ImageWrapper = styled.div`
     border: 1px solid brown;
     border-radius: 10px;
     overflow: hidden;`
-const LikesCounter = styled.span``
+const LikesCounter = styled.span`
+    margin-right: 10px;
+`
 const Button = styled.button`
     padding: 5px 25px;
     background-color: transparent;

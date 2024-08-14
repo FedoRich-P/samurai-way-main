@@ -12,7 +12,7 @@ const PostsWrapper = styled.article`
 `
 
 const MainForm = styled.form`
-    margin-bottom: 25px;
+    margin: 0 auto 25px;
     max-width: 500px;
     display: flex;
     flex-direction: column;
@@ -22,6 +22,10 @@ const MainForm = styled.form`
         height: 150px;
         border-radius: 10px;
         resize: none;
+    }
+    
+    h3 {
+        text-align: center;
     }
 `
 const FormButton = styled.button`

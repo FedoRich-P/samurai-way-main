@@ -1,12 +1,11 @@
 import {s} from "./Message.styled";
 import {NavLink} from "react-router-dom";
 
-export type DialogItemPropsType = {
-    id?: number;
+type MessagePropsType = {
     text: string;
 }
 
-export const Message = ({text, id} : DialogItemPropsType) => {
+export const Message = ({text} : MessagePropsType) => {
     return(
         <s.StyledMessage>
             {text}

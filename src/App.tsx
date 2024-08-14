@@ -4,14 +4,31 @@ import styled from "styled-components";
 import {Header} from "./layout/header/Header";
 import {Aside} from "./layout/aside/Aside";
 import {Container} from "./components/Container";
-import {Dialogs} from "./layout/Dialogs/Dialogs";
+import {Dialogs, MessagesPropsType, UsersPropsType} from "./layout/Dialogs/Dialogs";
 import {MainContainer} from "./components/MainContainer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Music} from "./layout/music/Music";
 import {News} from "./layout/news/News";
 import {Profile} from "./layout/profile/Profile";
+import {PostsArrPropsType} from "./layout/profile/myPosts/Posts";
 
-function App() {
+type profilePagePropsType = {
+    postsArr: PostsArrPropsType[];
+}
+type messagesPagePropsType = {
+    messages: MessagesPropsType[];
+    users: UsersPropsType[];
+}
+type AppStatePropsType = {
+    profilePage: profilePagePropsType,
+    messagesPage: messagesPagePropsType,
+}
+
+type AppPropsType = {
+    appState: AppStatePropsType;
+}
+
+function App({appState}: AppPropsType) {
     return (
         <BrowserRouter>
             <Container>
@@ -21,8 +38,8 @@ function App() {
                     <MainContainer>
 
                         <Routes>
-                            <Route path="/profile" element={<Profile/>}/>
-                            <Route path="/dialogs/*" element={<Dialogs/>}/>
+                            <Route path="/profile" element={<Profile state={appState.profilePage}/>}/>
+                            <Route path="/dialogs/*" element={<Dialogs state={appState.messagesPage}/>}/>
                             <Route path="/news" element={<News/>}/>
                             <Route path="/music" element={<Music/>}/>
                         </Routes>

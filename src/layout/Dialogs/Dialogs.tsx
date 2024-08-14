@@ -3,30 +3,43 @@ import {NavLink} from "react-router-dom";
 import {DialogItem} from "./dialog/DialogItem";
 import {Message} from "./Message/Message";
 
+export type MessagesPropsType = {
+    id: number;
+    text: string;
+}
 
-export const Dialogs = () => {
-    const users: { name: string, id: number } [] = [
-        {name: 'Alex', id: 1},
-        {name: 'Nik', id: 2},
-        {name: 'Helen', id: 3},
-        {name: 'Rose', id: 4},
-        {name: 'Vik', id: 5},
-        {name: 'Max', id: 6},
-    ]
+export type UsersPropsType = {
+    id: number;
+    name: string;
+}
 
+export type StatePropsType = {
+   messages: MessagesPropsType[];
+   users:  UsersPropsType[];
+}
+
+export type DialogsPropsType = {
+   state: StatePropsType;
+}
+
+export const Dialogs = ({state} : DialogsPropsType) => {
+
+    console.log(state)
     return (
         <s.StyledDialog>
             <h2>Dialogs</h2>
             <s.DialogList>
-                {users.map(user => (
-                    <DialogItem id={user.id} name={user.name}/>
+                {state.users.map(({id, name}) => (
+                    <DialogItem key={id} id={id} name={name}/>
                 ))}
 
             </s.DialogList>
             <s.MessagesList>
-                <Message text={'Hi !'}/>
-                <Message text={'How are you ?'}/>
-                <Message text={'I`m fine )'}/>
+                {
+                    state.messages.map(({text}, i) => (
+                        <Message key={i} text={text}/>
+                    ))
+                }
             </s.MessagesList>
         </s.StyledDialog>
     )

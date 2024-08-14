@@ -1,14 +1,13 @@
 import React from "react";
 import {s} from "./Profile.styled";
-import {Posts} from "./myPosts/Posts";
+import {Posts, PostsPropsType} from "./myPosts/Posts";
 import {ProfileInfo} from "./profileInfo/ProfileInfo";
 
-export const Profile = () => {
+export const Profile = ({state}: PostsPropsType) => {
     return (
         <s.StyledProfile>
             <ProfileInfo/>
-            <Posts/>
+            <Posts state={state}/>
         </s.StyledProfile>
-
     )
 }

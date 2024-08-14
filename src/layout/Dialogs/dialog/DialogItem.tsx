@@ -1,7 +1,7 @@
 import {s} from "./DialogItem.styled";
 import {NavLink} from "react-router-dom";
 
-export type DialogItemPropsType = {
+type DialogItemPropsType = {
     id: number;
     name: string;
 }
@@ -9,7 +9,7 @@ export type DialogItemPropsType = {
 export const DialogItem = ({name, id} : DialogItemPropsType) => {
     return(
         <s.DialogItem>
-            <NavLink to={`/dialogs/{id}`}>{name}</NavLink>
+            <NavLink to={`${/dialogs/id}`}>{name}</NavLink>
         </s.DialogItem>
     )
 }

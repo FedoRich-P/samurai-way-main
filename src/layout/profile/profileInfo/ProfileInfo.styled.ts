@@ -7,6 +7,7 @@ const UserCard = styled.article`
     align-items: center;
 `
 const ImgWrapper = styled.div`
+    margin-right: 15px;
     width: 250px;
     height: 150px;
     object-fit: cover;
@@ -15,7 +16,11 @@ const ImgWrapper = styled.div`
     overflow: hidden;
 `
 const UserData = styled.dl`
+    margin-bottom: 20px;
+    padding: 10px;
     flex: 0 1 50%;
+    border: 2px solid brown;
+    border-radius: 10px;
 
     
     div {
