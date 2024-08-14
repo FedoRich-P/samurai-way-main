@@ -4,31 +4,15 @@ import styled from "styled-components";
 import {Header} from "./layout/header/Header";
 import {Aside} from "./layout/aside/Aside";
 import {Container} from "./components/Container";
-import {Dialogs, MessagesPropsType, UsersPropsType} from "./layout/Dialogs/Dialogs";
+import {Dialogs} from "./layout/Dialogs/Dialogs";
+import {Profile} from "./layout/profile/Profile";
 import {MainContainer} from "./components/MainContainer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Music} from "./layout/music/Music";
 import {News} from "./layout/news/News";
-import {Profile} from "./layout/profile/Profile";
-import {PostsArrPropsType} from "./layout/profile/myPosts/Posts";
+import {AppStatePropsType} from "./redux/state";
 
-type profilePagePropsType = {
-    postsArr: PostsArrPropsType[];
-}
-type messagesPagePropsType = {
-    messages: MessagesPropsType[];
-    users: UsersPropsType[];
-}
-type AppStatePropsType = {
-    profilePage: profilePagePropsType,
-    messagesPage: messagesPagePropsType,
-}
-
-type AppPropsType = {
-    appState: AppStatePropsType;
-}
-
-function App({appState}: AppPropsType) {
+function App({profilePage, messagesPage}:AppStatePropsType) {
     return (
         <BrowserRouter>
             <Container>
@@ -38,8 +22,8 @@ function App({appState}: AppPropsType) {
                     <MainContainer>
 
                         <Routes>
-                            <Route path="/profile" element={<Profile state={appState.profilePage}/>}/>
-                            <Route path="/dialogs/*" element={<Dialogs state={appState.messagesPage}/>}/>
+                            <Route path="/profile" element={<Profile posts={profilePage.posts}/>}/>
+                            <Route path="/dialogs/*" element={<Dialogs messages={messagesPage.messages} users={messagesPage.users}/>}/>
                             <Route path="/news" element={<News/>}/>
                             <Route path="/music" element={<Music/>}/>
                         </Routes>
@@ -61,6 +45,3 @@ const ProjectWrapper = styled.div`
     gap: 15px;
 `
 export default App;
-
-{/*<Main/>*/}
-{/*<Dialogs/>*/}

@@ -1,13 +1,14 @@
 import React from "react";
 import {s} from "./Profile.styled";
-import {Posts, PostsPropsType} from "./myPosts/Posts";
+import {Posts} from "./myPosts/Posts";
 import {ProfileInfo} from "./profileInfo/ProfileInfo";
+import { ProfilePagePropsType} from "../../redux/state";
 
-export const Profile = ({state}: PostsPropsType) => {
+export const Profile = ({posts}: ProfilePagePropsType) => {
     return (
         <s.StyledProfile>
             <ProfileInfo/>
-            <Posts state={state}/>
+            <Posts posts={posts}/>
         </s.StyledProfile>
     )
 }

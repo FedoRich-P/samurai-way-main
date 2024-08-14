@@ -1,22 +1,10 @@
 import React from "react";
 import {s} from "./Posts.styled";
 import {Post} from "../post/Post.";
+import {ProfilePagePropsType} from "../../../redux/state";
 
-export type PostsArrPropsType = {
-    id: number;
-    text: string;
-    likes: number;
-}
+export const Posts = ({posts}: ProfilePagePropsType) => {
 
-export type StatePropsType = {
-    postsArr: PostsArrPropsType[];
-}
-
-export type PostsPropsType = {
-    state: StatePropsType;
-}
-
-export const Posts = (props: PostsPropsType) => {
     return (
         <s.PostsWrapper>
             <s.MainForm>
@@ -26,9 +14,9 @@ export const Posts = (props: PostsPropsType) => {
             </s.MainForm>
             <ul>
                 {
-                    props.state.postsArr.map(({text, likes, id}, i) => {
+                   posts.map(({text, likes, id}, i) => {
                         return (
-                            <Post text={text} likes={likes} id={id} key={i}/>
+                            <Post  text={text} likes={likes} id={id} key={i} />
 
                         )
                     })
