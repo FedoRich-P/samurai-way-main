@@ -20,14 +20,12 @@ function App({profilePage, messagesPage}:AppStatePropsType) {
                     <Header/>
                     <Aside/>
                     <MainContainer>
-
                         <Routes>
                             <Route path="/profile" element={<Profile posts={profilePage.posts}/>}/>
                             <Route path="/dialogs/*" element={<Dialogs messages={messagesPage.messages} users={messagesPage.users}/>}/>
                             <Route path="/news" element={<News/>}/>
                             <Route path="/music" element={<Music/>}/>
                         </Routes>
-
                     </MainContainer>
                 </ProjectWrapper>
             </Container>
